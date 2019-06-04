@@ -41,6 +41,7 @@
                 sudo pip install pipenv
                 pipenv install
                 pipenv run "python manage.py test"
+
       publish-latest:
         executor: docker-publisher
         steps:
@@ -74,3 +75,4 @@
                 - build
               filters:
                 branches:
+                  only: master
