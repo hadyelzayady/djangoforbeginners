@@ -16,6 +16,8 @@ jobs:
             sudo pip install pipenv
             pipenv install
             pipenv run "python manage.py test"
+      - run:
+          command: docker build -t $IMAGE_NAME:latest .
   publish-latest:
         environment:
           IMAGE_NAME: hadyelzayady/instabug-task 
