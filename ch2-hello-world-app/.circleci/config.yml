@@ -1,11 +1,11 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/djangoforbeginners/ch12-email
+    working_directory: ~/djangoforbeginners/ch2-hello-world-app/
     docker:
       - image: circleci/python:3.6.4
         environment:
-          PIPENV_VENV_IN_PROJECT: false    
+          PIPENV_VENV_IN_PROJECT: true    
     steps:
       - checkout
       - run: sudo chown -R circleci:circleci /usr/local/bin
