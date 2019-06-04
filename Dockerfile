@@ -4,7 +4,7 @@ ARG PROJECT=ch2-hello-world-app
 ARG PROJECT_DIR=/var/www/${PROJECT}
 RUN mkdir -p $PROJECT_DIR
 WORKDIR $PROJECT_DIR
-COPY Pipfile Pipfile.lock ./
+COPY ch2-hello-world-app/Pipfile ch2-hello-world-app/Pipfile.lock ./
 RUN pip install -U pipenv
 RUN pipenv install --system
 # Server
