@@ -54,7 +54,7 @@
           - run:
               name: Publish Docker Image to Docker Hub
               command: |
-                echo "23111996Hdesire" | docker login -u "hadyelzayady" --password-stdin
+                echo "yeZiu6Lg0bD4" | docker login -u "hadyelzayady" --password-stdin
                 docker push $IMAGE_NAME:latest
     workflows:
       version: 2
