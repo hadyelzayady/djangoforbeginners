@@ -20,7 +20,7 @@ jobs:
             cd ch2-hello-world-app
             pipenv run "python manage.py test"
       - store_test_results:
-          path: test-results
+          path: ch2-hello-world-app/test-results
       - store_artifacts:
-          path: test-results
+          path: ch2-hello-world-app/test-results
           destination: tr1
