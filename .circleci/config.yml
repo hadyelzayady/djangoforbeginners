@@ -12,7 +12,7 @@ jobs:
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - run:
           command: |
-            cd ch2-hello-world-app
+            cd ch14-permissions-and-authorizations
             sudo pip install pipenv
             pipenv install
       - run:
