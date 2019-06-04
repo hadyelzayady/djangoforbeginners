@@ -7,7 +7,7 @@
           - image: circleci/buildpack-deps:stretch
     jobs:
       build:
-        working_directory: ~/djangoforbeginners/ch14-permissions-and-authorizations
+        working_directory: ~/djangoforbeginners/ch2-hello-world-app
         executor: docker-publisher
         steps:
           - checkout
@@ -15,19 +15,16 @@
           - run:
               name: Build Docker image
               command: |
-                cd ch14-permissions-and-authorizations
                 docker build -t $IMAGE_NAME:latest .
           - run:
               name: Archive Docker image
-              command: |
-                cd ch14-permissions-and-authorizations
-                docker save -o image.tar $IMAGE_NAME
+              command: docker save -o image.tar $IMAGE_NAME
           - persist_to_workspace:
               root: .
               paths:
                 - ./image.tar
       test:
-        working_directory: ~/djangoforbeginners/ch14-permissions-and-authorizations
+        working_directory: ~/djangoforbeginners/ch2-hello-world-app
         docker:
           - image: circleci/python:3.6.4
             environment:
@@ -40,13 +37,12 @@
           - run:
               name: testing
               command: |
-                cd ch14-permissions-and-authorizations
+                cd ch2-hello-world-app
                 sudo pip install pipenv
                 pipenv install
                 pipenv run "python manage.py test"
 
       publish-latest:
-        working_directory: ~/djangoforbeginners/ch14-permissions-and-authorizations
         executor: docker-publisher
         steps:
           - attach_workspace:
