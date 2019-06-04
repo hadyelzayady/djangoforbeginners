@@ -20,8 +20,8 @@
           - run:
               name: Archive Docker image
               command: |
-              cd ch14-permissions-and-authorizations
-              docker save -o image.tar $IMAGE_NAME
+                cd ch14-permissions-and-authorizations
+                docker save -o image.tar $IMAGE_NAME
           - persist_to_workspace:
               root: .
               paths:
