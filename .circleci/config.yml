@@ -17,13 +17,6 @@ jobs:
             sudo pip install pipenv
             pipenv install
             pipenv run "python manage.py test"
-      - run:
-          name: Publish Docker Image to Docker Hub
-          command: |
-            cd ch14-permissions-and-authorizations
-            Docker build -t $IMAGE_NAME .
-            echo "23111996Hdesire" | docker login -u "hadyelzayady" --password-stdin
-            docker push $IMAGE_NAME:latest
 
   publish-latest:
         environment:
@@ -36,7 +29,7 @@ jobs:
               name: Publish Docker Image to Docker Hub
               command: |
                 cd ch14-permissions-and-authorizations
-                Docker build -t $IMAGE_NAME .
+                docker build -t $IMAGE_NAME .
                 echo "23111996Hdesire" | docker login -u "hadyelzayady" --password-stdin
                 docker push $IMAGE_NAME:latest
               
