@@ -41,10 +41,8 @@
                 sudo pip install pipenv
                 pipenv install
                 pipenv run "python manage.py test"
-
       publish-latest:
         executor: docker-publisher
-        working_directory: ~/djangoforbeginners/ch2-hello-world-app
         steps:
           - attach_workspace:
               at: /tmp/workspace
@@ -76,4 +74,3 @@
                 - build
               filters:
                 branches:
-                  only: master
