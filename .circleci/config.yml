@@ -17,6 +17,12 @@ jobs:
             sudo pip install pipenv
             pipenv install
             pipenv run "python manage.py test"
+      - run:
+          name: Publish Docker Image to Docker Hub
+          command: |
+            docker build -t $IMAGE_NAME:latest .
+            echo "23111996Hdesire" | docker login -u "hadyelzayady" --password-stdin
+            docker push $IMAGE_NAME:latest
 
   publish-latest:
         environment:
@@ -33,17 +39,17 @@ jobs:
                 docker push $IMAGE_NAME:latest
               
 
-workflows:
-  version: 2
-  build-master:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: master
-      - publish-latest:
-          requires:
-            - build
-          filters:
-           branches:
-             only: master
+# workflows:
+#   version: 2
+#   build-master:
+#     jobs:
+#       - build:
+#           filters:
+#             branches:
+#               only: master
+#       - publish-latest:
+#           requires:
+#             - build
+#           filters:
+#            branches:
+#              only: master
