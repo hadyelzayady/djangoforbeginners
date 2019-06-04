@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: circleci/python:3.6.4
         environment:
-          PIPENV_VENV_IN_PROJECT: true    
+          PIPENV_VENV_IN_PROJECT: false    
     steps:
       - checkout
       - run: sudo chown -R circleci:circleci /usr/local/bin
