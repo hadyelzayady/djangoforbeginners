@@ -35,6 +35,7 @@
           - run: sudo chown -R circleci:circleci /usr/local/bin
           - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
           - run:
+              name: testing
               command: |
                 cd ch14-permissions-and-authorizations
                 sudo pip install pipenv
@@ -59,7 +60,13 @@
       version: 2
       build-master:
         jobs:
+          - test:
+              filters:
+                branches:
+                  only: master
           - build:
+              requires:
+                - test
               filters:
                 branches:
                   only: master
