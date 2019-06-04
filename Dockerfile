@@ -5,9 +5,9 @@ ARG DJANGO_SECRET_KEY
 
 RUN mkdir -p /usr/src/app
 
-COPY ./_app /usr/src/app
-COPY Pipfile /usr/src/app/
-COPY Pipfile.lock /usr/src/app/
+COPY ./ch14-permissions-and-authorizations /usr/src/app
+COPY ./ch14-permissions-and-authorizations Pipfile /usr/src/app/
+COPY ./ch14-permissions-and-authorizations Pipfile.lock /usr/src/app/
 
 WORKDIR /usr/src/app
 
