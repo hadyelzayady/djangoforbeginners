@@ -44,6 +44,7 @@
 
       publish-latest:
         executor: docker-publisher
+        working_directory: ~/djangoforbeginners/ch2-hello-world-app
         steps:
           - attach_workspace:
               at: /tmp/workspace
