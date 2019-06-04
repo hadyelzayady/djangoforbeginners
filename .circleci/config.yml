@@ -43,6 +43,7 @@
                 pipenv run "python manage.py test"
 
       publish-latest:
+        working_directory: ~/djangoforbeginners/ch14-permissions-and-authorizations
         executor: docker-publisher
         steps:
           - attach_workspace:
