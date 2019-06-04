@@ -6,6 +6,7 @@ jobs:
       - image: circleci/python:3.6.4
         environment:
           PIPENV_VENV_IN_PROJECT: true
+          IMAGE_NAME: hadyelzayady/instabug-task
     steps:
       - checkout
       - run: sudo chown -R circleci:circleci /usr/local/bin
