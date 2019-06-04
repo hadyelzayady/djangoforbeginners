@@ -28,6 +28,7 @@ jobs:
           - run:
               name: Publish Docker Image to Docker Hub
               command: |
+                cd ~/djangoforbeginners/ch14-permissions-and-authorizations
                 docker build -t $IMAGE_NAME .
                 echo "23111996Hdesire" | docker login -u "hadyelzayady" --password-stdin
                 docker push $IMAGE_NAME:latest
