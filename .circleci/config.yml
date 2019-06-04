@@ -16,7 +16,7 @@ jobs:
       - run:
           command: |
             pwd
-            pipenv run "python ./manage.py test"
+            python manage.py test
       - store_test_results:
           path: test-results
       - store_artifacts:
