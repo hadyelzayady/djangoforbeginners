@@ -19,8 +19,3 @@ jobs:
           command: |
             cd ch14-permissions-and-authorizations
             pipenv run "python manage.py test"
-      - store_test_results:
-          path: ch14-permissions-and-authorizations/test-results
-      - store_artifacts:
-          path: ch14-permissions-and-authorizations/test-results
-          destination: tr1
