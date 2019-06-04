@@ -13,8 +13,10 @@ jobs:
       - run: cd ch14-permissions-and-authorizations
       - run:
           command: |
+            cd ch14-permissions-and-authorizations
             sudo pip install pipenv
             pipenv install
       - run:
           command: |
+            cd ch14-permissions-and-authorizations
             pipenv run "python manage.py test"
