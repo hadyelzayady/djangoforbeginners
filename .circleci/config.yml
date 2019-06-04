@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/djangoforbeginners/ch2-hello-world-app/
+    working_directory: ~/djangoforbeginners/ch14-permissions-and-authorizations
     docker:
       - image: circleci/python:3.6.4
         environment:
@@ -17,10 +17,10 @@ jobs:
             pipenv install
       - run:
           command: |
-            cd ch2-hello-world-app
+            cd ch14-permissions-and-authorizations
             pipenv run "python manage.py test"
       - store_test_results:
-          path: ch2-hello-world-app/test-results
+          path: ch14-permissions-and-authorizations/test-results
       - store_artifacts:
-          path: ch2-hello-world-app/test-results
+          path: ch14-permissions-and-authorizations/test-results
           destination: tr1
