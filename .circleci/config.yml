@@ -24,21 +24,23 @@
               paths:
                 - ./image.tar
       test:
-         working_directory: ~/djangoforbeginners/ch14-permissions-and-authorizations
-        docker:
-          - image: circleci/python:3.6.4
-        environment:
-          PIPENV_VENV_IN_PROJECT: true
-        steps:
-          - checkout
-          - run: sudo chown -R circleci:circleci /usr/local/bin
-          - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
-          - run:
-              command: |
-                cd ch14-permissions-and-authorizations
-                sudo pip install pipenv
-                pipenv install
-                pipenv run "python manage.py test"
+      working_directory: ~/djangoforbeginners/ch14-permissions-and-authorizations
+      docker:
+        - image: circleci/python:3.6.4
+          environment:
+            PIPENV_VENV_IN_PROJECT: true
+            IMAGE_NAME: hadyelzayady/instabug-task
+      steps:
+        - checkout
+        - run: sudo chown -R circleci:circleci /usr/local/bin
+        - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+        - run:
+            command: |
+              cd ch14-permissions-and-authorizations
+              sudo pip install pipenv
+              pipenv install
+              pipenv run "python manage.py test"
+
       publish-latest:
         executor: docker-publisher
         steps:
@@ -61,15 +63,9 @@
               filters:
                 branches:
                   only: master
-          - test:
-              filters:
-                  branches:
-                    only: master
-              required:
-                -build
           - publish-latest:
               requires:
-                - test
+                - build
               filters:
                 branches:
                   only: master
