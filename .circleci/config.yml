@@ -17,7 +17,8 @@ jobs:
             pipenv install
       - run:
           command: |
-            pipenv run "python ch2-hello-world-app/manage.py test"
+            cd ch2-hello-world-app
+            pipenv run "python manage.py test"
       - store_test_results:
           path: test-results
       - store_artifacts:
